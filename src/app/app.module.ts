@@ -20,6 +20,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { TasksComponent } from './page/tasks/tasks.component';
 import { HomeComponent } from './page/home/home.component';
 import {MatTableModule} from '@angular/material/table';
+
+import {TextFieldModule} from '@angular/cdk/text-field';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,8 @@ import {MatTableModule} from '@angular/material/table';
     MatMenuModule,
     MatExpansionModule,
     FlexLayoutModule,
-    MatTableModule
+    MatTableModule,
+    TextFieldModule
 
   ],
   providers: [],
