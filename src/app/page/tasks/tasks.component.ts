@@ -48,6 +48,7 @@ export class TasksComponent {
   removeData() {
     this.dataSource.pop();
     this.table.renderRows();
+    console.log(this.info);
     
     
   }
