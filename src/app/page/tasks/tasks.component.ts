@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
 
 
 export interface PeriodicElement {
@@ -7,20 +8,9 @@ export interface PeriodicElement {
   position: number;
   weight: number;
   symbol: string;
+
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
 
 @Component({
   selector: 'app-tasks',
@@ -28,28 +18,55 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
-  firstNameAutofilled: boolean= false;
+  data1: number=0;
+  data2:string="";
+  data3:number=0;
+  data4:string="";
+  
+ELEMENT_DATA: PeriodicElement[] = [
+  { position:this.data1, name:this.data2 , weight:this.data3 , symbol:this.data4  },
+];
 
+
+  constructor(public dialog: MatDialog) {}
   info = {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = [...ELEMENT_DATA];
+  
 
   @ViewChild(MatTable)
   table!: MatTable<PeriodicElement>;
-
+  
+  dataSource = [...this.ELEMENT_DATA];
 
   addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+    
+    this.dataSource.push({ position: this.data1, name: this.data2, weight: this.data3, symbol: this.data4 },);
     this.table.renderRows();
+   
   }
 
   removeData() {
     this.dataSource.pop();
     this.table.renderRows();
-    
-    
+  }
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
   }
 
+}
+
+@Component({
+  selector: 'dialog-elements-example-dialog',
+  templateUrl: 'tasks.component-dialog.html',
+})
+export class DialogElementsExampleDialog {
+  data1: number=0;
+  data2:string="";
+  data3:number=0;
+  data4:string="";
+  // this.TasksComponent.datanew1 = new data1;
+  addData1(){
+    console.log(this.data1,this.data2,this.data3,this.data4)
+  }
 }

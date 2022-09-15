@@ -3,19 +3,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar >Menu</mat-toolbar>
     <mat-nav-list>
-      <button mat-raised-button [routerLink]="['/home']" class="button1">Basic</button>
-  
-      <mat-expansion-panel class="dropdown" (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Tasks
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <a mat-list-item href="#" routerLink="/tasks" >Tasks List</a>
-        <a mat-list-item href="#">Upcoming Task/s</a>
-        <a mat-list-item href="#">Completed Task</a>
-        <a mat-list-item href="#">Undone Tasks</a>
-      </mat-expansion-panel>
+      <a mat-list-item routerLink="/home">Dashboard</a>
+      <a mat-list-item href="#" routerLink="/tasks" >Tasks List</a>
+      <a mat-list-item href="#">Upcoming Task/s</a>
+      <a mat-list-item href="#">Completed Task</a>
+      <a mat-list-item href="#">Undone Tasks</a>
       <a mat-list-item href="#">Signout</a>
     </mat-nav-list>
   </mat-sidenav>

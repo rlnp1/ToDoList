@@ -17,18 +17,22 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TasksComponent } from './page/tasks/tasks.component';
+import { TasksComponent,DialogElementsExampleDialog } from './page/tasks/tasks.component';
 import { HomeComponent } from './page/home/home.component';
 import {MatTableModule} from '@angular/material/table';
-
 import {TextFieldModule} from '@angular/cdk/text-field';
+import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     DashboardComponent,
     TasksComponent,
-    HomeComponent
+    HomeComponent,
+    DialogElementsExampleDialog
+
   ],
   imports: [
     BrowserModule,
@@ -46,8 +50,9 @@ import {TextFieldModule} from '@angular/cdk/text-field';
     MatExpansionModule,
     FlexLayoutModule,
     MatTableModule,
-    TextFieldModule
-
+    TextFieldModule,
+    FormsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
