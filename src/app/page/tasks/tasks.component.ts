@@ -18,6 +18,7 @@ export interface PeriodicElement {
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
+ 
   data1: number=0;
   data2:string="";
   data3:number=0;
@@ -26,9 +27,12 @@ export class TasksComponent {
 ELEMENT_DATA: PeriodicElement[] = [
   { position:this.data1, name:this.data2 , weight:this.data3 , symbol:this.data4  },
 ];
+  static saveData: any;
 
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+
+  }
   info = {}
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
@@ -41,8 +45,7 @@ ELEMENT_DATA: PeriodicElement[] = [
 
   addData() {
     
-    this.dataSource.push({ position: this.data1, name: this.data2, weight: this.data3, symbol: this.data4 },);
-    this.table.renderRows();
+    
    
   }
 
@@ -52,6 +55,10 @@ ELEMENT_DATA: PeriodicElement[] = [
   }
   openDialog() {
     this.dialog.open(DialogElementsExampleDialog);
+  }
+  saveData(data1: number, data2: string, data3: number, data4: string) {
+    this.dataSource.push({ position: this.data1, name: this.data2, weight: this.data3, symbol: this.data4 },);
+    this.table.renderRows();
   }
 
 }
@@ -67,6 +74,7 @@ export class DialogElementsExampleDialog {
   data4:string="";
   // this.TasksComponent.datanew1 = new data1;
   addData1(){
+    TasksComponent.saveData(this.data1,this.data2,this.data3,this.data4)
     console.log(this.data1,this.data2,this.data3,this.data4)
   }
 }
