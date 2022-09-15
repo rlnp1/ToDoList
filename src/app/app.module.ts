@@ -23,6 +23,7 @@ import {MatTableModule} from '@angular/material/table';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { LoginFormComponent } from './page/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     DashboardComponent,
     TasksComponent,
     HomeComponent,
-    DialogElementsExampleDialog
+    DialogElementsExampleDialog,
+    LoginFormComponent
 
   ],
   imports: [
