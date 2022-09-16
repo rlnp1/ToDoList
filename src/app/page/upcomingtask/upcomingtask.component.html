@@ -1,0 +1,9 @@
+
+<button mat-raised-button color="primary" (click) = 'getdata1()'>Open Data</button>
+
+<ul *ngFor="let machine of machines">  
+    <li>{{ machine.id }}</li>  
+    <li>{{ machine.mongo_sys_id }}</li>  
+    <li>{{ machine.ref_id }}</li>  
+    <li>{{ machine.theme_change_status }}</li>  
+  </ul> 

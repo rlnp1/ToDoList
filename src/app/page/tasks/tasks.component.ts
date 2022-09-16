@@ -1,14 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import {MatDialog} from '@angular/material/dialog';
+import { ApiService } from 'src/app/api.service';
 
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-
+  serial_number: string
+  id: number
+  machine_theme_id: number
+  machine_state: string
 }
 
 
@@ -18,63 +17,33 @@ export interface PeriodicElement {
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
- 
-  data1: number=0;
-  data2:string="";
-  data3:number=0;
-  data4:string="";
-  
-ELEMENT_DATA: PeriodicElement[] = [
-  { position:this.data1, name:this.data2 , weight:this.data3 , symbol:this.data4  },
-];
-  static saveData: any;
+  machines: PeriodicElement[] = [];
+  serial_number1: any;
+  id1: any;
+  machine_theme_id1: any;
+  machine_state: any;
+  dataSource: any;
 
-
-  constructor(public dialog: MatDialog) {
-
+  constructor(private service: ApiService) {
+    this.getdata1()
   }
   info = {}
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  
+  displayedColumns: string[] = ['serial_number', 'id', 'machine_theme_id', 'machine_state'];
 
   @ViewChild(MatTable)
   table!: MatTable<PeriodicElement>;
-  
-  dataSource = [...this.ELEMENT_DATA];
 
-  addData() {
-    
-    
-   
-  }
 
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
+  getdata1() {
+    this.service.getdata().subscribe((response: any) => {
+      this.machines = response.machines;
+      this.dataSource = [...this.machines];
+    });
   }
-  openDialog() {
-    this.dialog.open(DialogElementsExampleDialog);
-  }
-  saveData(data1: number, data2: string, data3: number, data4: string) {
-    this.dataSource.push({ position: this.data1, name: this.data2, weight: this.data3, symbol: this.data4 },);
-    this.table.renderRows();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-}
-
-@Component({
-  selector: 'dialog-elements-example-dialog',
-  templateUrl: 'tasks.component-dialog.html',
-})
-export class DialogElementsExampleDialog {
-  data1: number=0;
-  data2:string="";
-  data3:number=0;
-  data4:string="";
-  // this.TasksComponent.datanew1 = new data1;
-  addData1(){
-    TasksComponent.saveData(this.data1,this.data2,this.data3,this.data4)
-    console.log(this.data1,this.data2,this.data3,this.data4)
-  }
 }

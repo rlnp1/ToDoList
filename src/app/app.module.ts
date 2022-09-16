@@ -17,13 +17,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { TasksComponent,DialogElementsExampleDialog } from './page/tasks/tasks.component';
+import { TasksComponent } from './page/tasks/tasks.component';
 import { HomeComponent } from './page/home/home.component';
 import {MatTableModule} from '@angular/material/table';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginFormComponent } from './page/login-form/login-form.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UpcomingtaskComponent } from './page/upcomingtask/upcomingtask.component';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +35,8 @@ import { LoginFormComponent } from './page/login-form/login-form.component';
     DashboardComponent,
     TasksComponent,
     HomeComponent,
-    DialogElementsExampleDialog,
-    LoginFormComponent
+    LoginFormComponent,
+    UpcomingtaskComponent
 
   ],
   imports: [
@@ -54,7 +57,8 @@ import { LoginFormComponent } from './page/login-form/login-form.component';
     MatTableModule,
     TextFieldModule,
     FormsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
