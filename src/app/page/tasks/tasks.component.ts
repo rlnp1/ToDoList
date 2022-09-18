@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
 import { ApiService } from 'src/app/api.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 
 export interface PeriodicElement {
@@ -31,14 +31,13 @@ export class TasksComponent {
 
   displayedColumns: string[] = ['serial_number', 'id', 'machine_theme_id', 'machine_state'];
 
-  @ViewChild(MatTable)
-  table!: MatTable<PeriodicElement>;
+
 
 
   getdata1() {
     this.service.getdata().subscribe((response: any) => {
       this.machines = response.machines;
-      this.dataSource = [...this.machines];
+      this.dataSource = new MatTableDataSource(this.machines);
     });
   }
   applyFilter(event: Event) {

@@ -15,18 +15,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { TasksComponent } from './page/tasks/tasks.component';
 import { HomeComponent } from './page/home/home.component';
-import {MatTableModule} from '@angular/material/table';
-import {TextFieldModule} from '@angular/cdk/text-field';
+import { MatTableModule } from '@angular/material/table';
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { FormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LoginFormComponent } from './page/login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UpcomingtaskComponent } from './page/upcomingtask/upcomingtask.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,9 @@ import { UpcomingtaskComponent } from './page/upcomingtask/upcomingtask.componen
     TextFieldModule,
     FormsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
