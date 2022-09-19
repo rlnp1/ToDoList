@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import {  Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
@@ -18,7 +18,7 @@ export interface PeriodicElement {
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent implements AfterViewInit, OnInit {
+export class TasksComponent implements  OnInit {
 
   URL1 = 'https://smart.coinoponline.com.au/svcsapi/v1/machines?eyAiZmllbGRzIjogWwogICAgICAgIFsiYWN0aXZlIiwgIj0iLCB0cnVlXQogICAgXQp9';
  
@@ -52,9 +52,7 @@ export class TasksComponent implements AfterViewInit, OnInit {
     });
   }
 
-  ngAfterViewInit() {
 
-  }
 
 
   displayedColumns: string[] = ['serial_number', 'id', 'machine_theme_id', 'machine_state'];
