@@ -29,6 +29,7 @@ import { UpcomingtaskComponent } from './page/upcomingtask/upcomingtask.componen
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
     
 
   ],

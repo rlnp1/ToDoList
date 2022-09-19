@@ -15,13 +15,17 @@ const httpOptions = {
 })
 
 export class ApiService {
+  url: string = "";
 
-  private url = 'https://smart.coinoponline.com.au/svcsapi/v1/machines?eyAiZmllbGRzIjogWwogICAgICAgIFsiYWN0aXZlIiwgIj0iLCB0cnVlXQogICAgXQp9'
-
+ 
   constructor(private httpClient: HttpClient) { }
 
 
-  getdata() {
+  getdata(URL:any) {
+    console.log(URL);
+    
+    this.url = URL;
+
     return this.httpClient.get(this.url, httpOptions);
   }
 

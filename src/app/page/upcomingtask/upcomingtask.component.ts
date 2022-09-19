@@ -54,15 +54,15 @@ export class UpcomingtaskComponent {
 
   constructor(private service: ApiService) { }
 
-  getdata1() {
-    this.service.getdata().subscribe((response:any) => {
-      this.machines = response.machines;
-      this.count = response.count;
+  // getdata1() {
+  //   this.service.getdata().subscribe((response:any) => {
+  //     this.machines = response.machines;
+  //     this.count = response.count;
 
       
-      console.log(this.count);
+  //     console.log(this.count);
 
-    });
+  //   });
   }
 
-}
+
