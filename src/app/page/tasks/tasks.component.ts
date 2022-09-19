@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 
 
 export interface PeriodicElement {
@@ -16,7 +18,9 @@ export interface PeriodicElement {
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent {
+export class TasksComponent implements AfterViewInit  {
+
+
   machines: PeriodicElement[] = [];
   serial_number1: any;
   id1: any;
@@ -24,15 +28,24 @@ export class TasksComponent {
   machine_state: any;
   dataSource: any;
 
+
+  // @ViewChild('paginator')
+  // // paginator: MatPaginator = new MatPaginator<Int1>;
+
+  @ViewChild(MatSort)
+  sort: MatSort = new MatSort;
+
   constructor(private service: ApiService) {
     this.getdata1()
   }
-  info = {}
+
+  ngAfterViewInit() {
+    // this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
 
   displayedColumns: string[] = ['serial_number', 'id', 'machine_theme_id', 'machine_state'];
-
-
-
 
   getdata1() {
     this.service.getdata().subscribe((response: any) => {

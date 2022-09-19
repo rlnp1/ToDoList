@@ -28,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpcomingtaskComponent } from './page/upcomingtask/upcomingtask.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,10 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogModule,
     HttpClientModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

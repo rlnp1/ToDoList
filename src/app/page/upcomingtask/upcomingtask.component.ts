@@ -50,13 +50,17 @@ export interface Machine {
 })
 export class UpcomingtaskComponent {
   machines: Machine[]=[];
+  count: any;
 
   constructor(private service: ApiService) { }
 
   getdata1() {
     this.service.getdata().subscribe((response:any) => {
       this.machines = response.machines;
-      console.log(this.machines);
+      this.count = response.count;
+
+      
+      console.log(this.count);
 
     });
   }
