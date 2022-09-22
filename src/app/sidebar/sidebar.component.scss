@@ -5,7 +5,7 @@
 }
 
 .sidenav {
-  width: 200px;
+  width:300px;
   
 }
 
@@ -30,4 +30,35 @@ a{
 }
 .button1{
   width: 100%;
+  font-size: 100%;
+  text-align: left;
+  height: 60px;
+  border-radius: 0px;
+}
+.button2{
+  width: 100%;
+  font-size: 100%;
+  height: 40px;
+  text-align: left;
+  padding-right: 16px;
+  padding-left: 0px;
+  padding-top:0px ;
+  border-radius: 0px;
+}
+.mat-expansion-panel-header{
+  padding-right: 16px;
+  padding-left: 0px;
+  padding-top:5px ;
+  padding-bottom: 5px;
+
+}
+.mat-expansion-panel-body{
+  padding: 10px 24px 16px;
+  text-align: left;
+}
+.mat-expansion-panel{
+  border-radius: 0px;
+}
+.mat-expansion-panel-body.ng-tns-c192-1{
+  padding: 10px 24px 16px;
 }
